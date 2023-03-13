@@ -1,0 +1,44 @@
+* {
+  text-align: center;
+}
+
+body {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-image: url("../Background color//beige.jfif");
+}
+
+.designs a {
+  color: rgb(0, 0, 0);
+}
+
+.designs h3 {
+  padding: 10px 10px;
+}
+
+a:hover {
+  color: rgb(128, 57, 0);
+}
+
+#contact a:hover {
+  color: rgb(128, 57, 0);
+}
+
+#contact a {
+  color: rgb(0, 0, 0);
+}
+
+#cons-page a {
+  color: rgb(0, 0, 0);
+}
+
+#cons-page a:hover {
+  color: rgb(128, 57, 0);
+}
+
+a:link {
+  text-decoration: none;
+}
