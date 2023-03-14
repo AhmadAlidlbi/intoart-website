@@ -3,9 +3,12 @@
 }
 
 body {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif !important;
+  font-family:'Lucida Sans';
+   /* -webkit-font-fami */
 }
+
+/*font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif !important;*/
 
 body {
   background-image: url("../Background color//beige.jfif");
