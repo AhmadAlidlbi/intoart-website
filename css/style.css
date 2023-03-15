@@ -4,6 +4,8 @@
 
 body {
   background-image: url("../Background color/pexels-karolina-grabowska-4203100.jpg");
+  background-repeat: no-repeat;
+  background-size:auto;
 }
 
 body {
