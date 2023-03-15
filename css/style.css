@@ -3,11 +3,10 @@
 }
 
 body {
-  background-image: url("../Background color//40.jpg");
-  background-size: contain;
+  background-image: url("../Background color//60.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: scroll;
+  background-attachment:fixed;
 }
 
 body {
