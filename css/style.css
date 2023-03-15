@@ -62,11 +62,9 @@ body {
   color: rgb(0, 0, 0);
 }
 
-.designs h6{
-  font-size: 25px;
-  font-weight:700;
+.designs h3{
+  padding: 20px;
 }
-
 a:hover {
   color: rgb(128, 57, 0);
 }
