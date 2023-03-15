@@ -3,7 +3,13 @@
 }
 
 body {
-  background-image: url("../Background color//beige.jfif");
+  background-image: url("../Background color//pexels-karolina-grabowska-4203100.jpg");
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-attachment:scroll;
+}
+
+body{
   font-family: 'Quicksand', sans-serif;
 }
 
