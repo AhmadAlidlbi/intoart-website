@@ -28,7 +28,11 @@ body{
 }
 
 #paragraph1{
-  font-size: 20px;
+  font-size: 19px;
+}
+
+#designs{
+  font-size: 30px;
 }
 
 #intoart-logo{
@@ -48,7 +52,7 @@ body{
 }
 
 #description3{
-  font-size: 35px;
+  font-size: 30px;
 }
 
 .designs a {
@@ -81,4 +85,8 @@ a:hover {
 
 a:link {
   text-decoration: none;
+}
+
+#paragraph1{
+  font-weight:600;
 }
