@@ -22,8 +22,16 @@ body {
   border-radius:20px;
 }
 
+#intoart-logo:hover{
+  opacity: 0.93;
+}
+
 #offer-video{
   border-radius:20px;
+}
+
+#offer-video:hover{
+  opacity: 0.93;
 }
 
 .designs a {
