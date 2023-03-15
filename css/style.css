@@ -47,6 +47,10 @@ body{
   opacity: 0.9;
 }
 
+#description3{
+  font-size: 35px;
+}
+
 .designs a {
   color: rgb(0, 0, 0);
 }
