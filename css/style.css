@@ -34,8 +34,12 @@ body {
   font-weight: 600;
 }
 
-#designs {
+#our-designs {
   font-size: 30px;
+}
+
+.designs h3{
+  font-size: 22px;
 }
 
 #intoart-logo {
