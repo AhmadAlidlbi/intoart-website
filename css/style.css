@@ -93,6 +93,10 @@ a:link {
   text-decoration: none;
 }
 
+a:hover:link{
+  text-decoration:underline;
+}
+
 #contact span {
   font-weight: 600;
 }
