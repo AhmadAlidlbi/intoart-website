@@ -6,11 +6,15 @@
   box-sizing: border-box;
 }
 
-body {
+/*body {
   background-image: url("../Background color/pexels-karolina-grabowska-4203100.jpg");
   background-repeat: no-repeat;
   background-size: auto;
   background-attachment: fixed;
+}*/
+
+body{
+  background-color: #724400b7;
 }
 
 body {
@@ -49,9 +53,10 @@ a:hover:link {
   width: 100%;
   padding: 5px;
   z-index: 10;
+  background-color: #4627001e;
 }
 
-.logo-background{
+/*.logo-background{
   position: Fixed;
   top: 0px;
   left: 0px;
@@ -62,10 +67,9 @@ a:hover:link {
   height: 120px;
   width: 100%;
   padding: 5px;
-  opacity: 0.5;
+  opacity: 0.9;
   background-image: url("../Background color/white.jfif");
-
-}
+}*/
 
 .designs{
   position:relative;
