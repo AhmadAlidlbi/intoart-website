@@ -17,16 +17,16 @@ body {
   font-family: "Quicksand", sans-serif;
 }
 
-.designs a:hover {
-  color: rgb(128, 57, 0);
-}
-
 a:link {
   text-decoration: none;
 }
 
 a:hover:link {
   text-decoration: underline;
+}
+
+.designs a:hover {
+  color: rgb(128, 57, 0);
 }
 
 .designs h3 {
@@ -54,6 +54,31 @@ a:hover:link {
   height: 160px;
   width: 100%;
   padding: 5px;
+}
+
+.designs{
+  position:relative;
+  top: 140px;
+}
+
+.offices-designs{
+  position:relative;
+  top: 100px;
+}
+
+.lv-designs{
+  position:relative;
+  top: 100px;
+}
+
+.bed-designs{
+  position:relative;
+  top: 100px;
+}
+
+.bth-designs{
+  position:relative;
+  top: 100px;
 }
 
 #intoart-logo {
@@ -107,11 +132,6 @@ a:hover:link {
   top: 140px;
 }
 
-.designs{
-  position:relative;
-  top: 140px;
-}
-
 #our-designs {
   font-size: 30px;
 }
@@ -149,26 +169,6 @@ a:hover:link {
 
 #contact a {
   color: rgb(0, 0, 0);
-}
-
-.offices-designs{
-  position:relative;
-  top: 100px;
-}
-
-.lv-designs{
-  position:relative;
-  top: 100px;
-}
-
-.bed-designs{
-  position:relative;
-  top: 100px;
-}
-
-.bth-designs{
-  position:relative;
-  top: 100px;
 }
 
 /* latin-ext */
