@@ -17,7 +17,7 @@ body {
   font-family: "Quicksand", sans-serif;
 }
 
-a:hover {
+.designs a:hover {
   color: rgb(128, 57, 0);
 }
 
@@ -121,6 +121,11 @@ a:hover:link {
   top: 140px;
 }
 
+#consultations{
+  position:relative;
+  top: 140px;
+}
+
 #cons-page a {
   color: rgb(0, 0, 0);
 }
@@ -145,6 +150,27 @@ a:hover:link {
 #contact a {
   color: rgb(0, 0, 0);
 }
+
+.offices-designs{
+  position:relative;
+  top: 100px;
+}
+
+.lv-designs{
+  position:relative;
+  top: 100px;
+}
+
+.bed-designs{
+  position:relative;
+  top: 100px;
+}
+
+.bth-designs{
+  position:relative;
+  top: 100px;
+}
+
 /* latin-ext */
 @font-face {
   font-family: "Quicksand";
