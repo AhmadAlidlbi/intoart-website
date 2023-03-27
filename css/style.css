@@ -6,14 +6,15 @@
   box-sizing: border-box;
 }
 
-body {
+/*body {
   background-image: url("../Background color/pexels-karolina-grabowska-4203100.jpg");
   background-repeat: no-repeat;
   background-size: auto;
   background-attachment: fixed;
-}
+}*/
 
 body {
+  background-color:#f7f7cb ;
   font-family: "Quicksand", sans-serif;
 }
 
@@ -49,7 +50,7 @@ a:hover:link {
   width: 100%;
   padding: 5px;
   z-index: 10;
-  background-color: #5f340023;
+  background-color: 		#eeeeb9c7;
 }
 
 /*.logo-background{
