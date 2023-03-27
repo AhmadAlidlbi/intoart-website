@@ -62,7 +62,7 @@ a:hover:link {
   top: 0px;
   left: 0px;
   margin: 0px auto;
-  width: 120px;
+  width: 100%;
   padding: 5px;
   z-index: 10;
 }
@@ -107,6 +107,26 @@ a:hover:link {
 .bth-designs{
   position:relative;
   top: 100px;
+}
+
+#off-page-title{
+  position:relative;
+  top: 110px;
+}
+
+#lv-page-title{
+  position:relative;
+  top: 110px;
+}
+
+#bed-page-title{
+  position:relative;
+  top: 110px;
+}
+
+#bth-page-title{
+  position:relative;
+  top: 110px;
 }
 
 #intoart-logo {
