@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-image: url("../Background color/pexels-karolina-grabowska-4203100.jpg");
   background-repeat: no-repeat;
@@ -37,17 +41,19 @@ a:hover:link {
   padding: 20px;
 }
 
-#page-title {
-  font-size: 45px;
-}
-
-#paragraph1 {
-  font-size: 18px;
-  font-weight: 600;
-}
-
-#our-designs {
-  font-size: 30px;
+.logo{
+  position: Fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+  background-image: url("../Background color/white.jfif");
+  background-size: auto;
+  border-radius: 20px;
+  border: 0px;
+  margin: 0px auto;
+  height: 160px;
+  width: 100%;
+  padding: 5px;
 }
 
 #intoart-logo {
@@ -58,8 +64,32 @@ a:hover:link {
   opacity: 0.9;
 }
 
+#page-title {
+  position:relative;
+  top: 160px;
+  font-size: 45px;
+}
+
+#description1 {
+  position:relative;
+  top: 140px;
+  font-size: 30px;
+}
+
+#description2 {
+  position:relative;
+  top: 140px;
+}
+
+#offer-title{
+  position:relative;
+  top: 140px;
+}
+
 #offer-video {
   border-radius: 20px;
+  position:relative;
+  top: 140px;
 }
 
 #offer-video:hover {
@@ -68,14 +98,27 @@ a:hover:link {
 
 #description3 {
   font-size: 30px;
+  position:relative;
+  top: 140px;
 }
 
-#contact a:hover {
-  color: rgb(128, 57, 0);
+#paragraph1{
+  position:relative;
+  top: 140px;
 }
 
-#contact a {
-  color: rgb(0, 0, 0);
+.designs{
+  position:relative;
+  top: 140px;
+}
+
+#our-designs {
+  font-size: 30px;
+}
+
+.consultations{
+  position:relative;
+  top: 140px;
 }
 
 #cons-page a {
@@ -86,10 +129,22 @@ a:hover:link {
   color: rgb(128, 57, 0);
 }
 
+#contact{
+  position:relative;
+  top: 140px;
+}
+
 #contact span {
   font-weight: 600;
 }
 
+#contact a:hover {
+  color: rgb(128, 57, 0);
+}
+
+#contact a {
+  color: rgb(0, 0, 0);
+}
 /* latin-ext */
 @font-face {
   font-family: "Quicksand";
