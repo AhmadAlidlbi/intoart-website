@@ -109,6 +109,26 @@ a:hover:link {
   top: 100px;
 }
 
+.offices-designs img{
+  width: 800px;
+  margin: 10px;
+}
+
+.lv-designs img{
+  width: 800px;
+  margin: 10px;
+}
+
+.bed-designs img{
+  width: 800px;
+  margin: 10px;
+}
+
+.bth-designs img{
+  width: 800px;
+  margin: 10px;
+}
+
 #off-page-title{
   position:relative;
   top: 110px;
