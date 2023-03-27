@@ -13,16 +13,28 @@ body {
   font-family: "Quicksand", sans-serif;
 }
 
-/* latin-ext */
-@font-face {
-  font-family: "Quicksand";
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/quicksand/v30/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkKEo58i-wi40.woff2)
-    format("woff2");
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
-    U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+a:hover {
+  color: rgb(128, 57, 0);
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:hover:link {
+  text-decoration: underline;
+}
+
+.designs h3 {
+  font-size: 22px;
+}
+
+.designs a {
+  color: rgb(0, 0, 0);
+}
+
+.designs h3 {
+  padding: 20px;
 }
 
 #page-title {
@@ -36,10 +48,6 @@ body {
 
 #our-designs {
   font-size: 30px;
-}
-
-.designs h3{
-  font-size: 22px;
 }
 
 #intoart-logo {
@@ -62,17 +70,6 @@ body {
   font-size: 30px;
 }
 
-.designs a {
-  color: rgb(0, 0, 0);
-}
-
-.designs h3{
-  padding: 20px;
-}
-a:hover {
-  color: rgb(128, 57, 0);
-}
-
 #contact a:hover {
   color: rgb(128, 57, 0);
 }
@@ -89,14 +86,17 @@ a:hover {
   color: rgb(128, 57, 0);
 }
 
-a:link {
-  text-decoration: none;
-}
-
-a:hover:link{
-  text-decoration:underline;
-}
-
 #contact span {
   font-weight: 600;
+}
+
+/* latin-ext */
+@font-face {
+  font-family: "Quicksand";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/quicksand/v30/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkKEo58i-wi40.woff2) format("woff2");
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
