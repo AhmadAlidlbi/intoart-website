@@ -108,8 +108,10 @@ a:hover:link {
   padding: 20px;
 }
 
-.offices-designs{
+.offices-designs img{
   position: relative;
+  width: auto;
+  padding: 5px;
 }
 
 /*.offices-designs img{
@@ -135,6 +137,7 @@ a:hover:link {
 #off-page-title{
   position:relative;
   top: 110px;
+  font-size: 45px;
 }
 
 #lv-page-title{
