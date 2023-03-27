@@ -25,22 +25,6 @@ a:hover:link {
   text-decoration: underline;
 }
 
-.designs a:hover {
-  color: rgb(128, 57, 0);
-}
-
-.designs h3 {
-  font-size: 22px;
-}
-
-.designs a {
-  color: rgb(0, 0, 0);
-}
-
-.designs h3 {
-  padding: 20px;
-}
-
 /*.logo{
   position: Fixed;
   top: 0px;
@@ -107,6 +91,22 @@ a:hover:link {
 .bth-designs{
   position:relative;
   top: 100px;
+}
+
+.designs a:hover {
+  color: rgb(128, 57, 0);
+}
+
+.designs h3 {
+  font-size: 22px;
+}
+
+.designs a {
+  color: rgb(0, 0, 0);
+}
+
+.designs h3 {
+  padding: 20px;
 }
 
 .offices-designs img{
