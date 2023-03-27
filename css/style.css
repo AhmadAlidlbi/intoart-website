@@ -48,6 +48,7 @@ a:hover:link {
   z-index: 10;
   background-image: url("../Background color/white.jfif");
   background-size: auto;
+  border-radius: 0px;
   border: 0px;
   margin: 0px auto;
   height: 160px;
