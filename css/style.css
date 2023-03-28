@@ -47,10 +47,8 @@ a:hover:link {
   top: 0px;
   left: 0px;
   margin: 0px auto;
-  width: 100%;
   padding: 5px;
   z-index: 10;
-  background-color: 		#eeeeb9b0;
 }
 
 /*.logo-background{
@@ -68,9 +66,9 @@ a:hover:link {
   background-image: url("../Background color/white.jfif");
 }*/
 
-.designs{
+#designs{
   position:relative;
-  top: 140px;
+  top: 50px;
 }
 
 .offices-designs{
@@ -93,19 +91,19 @@ a:hover:link {
   top: 100px;
 }
 
-.designs a:hover {
+#designs a:hover {
   color: rgb(128, 57, 0);
 }
 
-.designs h3 {
+#designs h3 {
   font-size: 22px;
 }
 
-.designs a {
+#designs a {
   color: rgb(0, 0, 0);
 }
 
-.designs h3 {
+#designs h3 {
   padding: 20px;
 }
 
@@ -159,31 +157,34 @@ a:hover:link {
 }
 
 #page-title {
-  position:relative;
-  top: 110px;
+  position:fixed;
+  top: 0px;
+  left: 130px;
   font-size: 45px;
 }
 
 #description1 {
-  position:relative;
-  top: 140px;
+  position:fixed;
+  top: 10px;
+  left: 430px;
   font-size: 30px;
 }
 
 #description2 {
-  position:relative;
-  top: 140px;
+  position:fixed;
+  top: 55px;
+  left: 580px;
 }
 
 #offer-title{
   position:relative;
-  top: 140px;
+  top: 50px;
 }
 
 #offer-video {
   border-radius: 20px;
   position:relative;
-  top: 140px;
+  top: 50px;
 }
 
 #offer-video:hover {
@@ -193,22 +194,47 @@ a:hover:link {
 #description3 {
   font-size: 30px;
   position:relative;
-  top: 140px;
+  top: 50px;
 }
 
 #paragraph1{
   position:relative;
-  top: 140px;
+  top: 50px;
   font-size: 23px;
 }
 
 #our-designs {
+  position: fixed;
+  left: 910px;
+  top: 20px;
   font-size: 30px;
+}
+
+#our-designs-title a{
+  color: rgb(0, 0, 0);
+}
+#our-designs-title a:hover{
+  color: rgb(128, 57, 0);
 }
 
 .consultations{
   position:relative;
-  top: 140px;
+  top: 50px;
+}
+
+#contact-us{
+  position: fixed;
+  left: 1200px;
+  top:35px;
+}
+
+#contact-us a{
+  color: rgb(0, 0, 0);
+}
+
+#contact-us a:hover{
+  color: rgb(128, 57, 0);
+  text-decoration:none;
 }
 
 #consultations{
@@ -226,7 +252,7 @@ a:hover:link {
 
 #contact{
   position:relative;
-  top: 140px;
+  top: 60px;
 }
 
 #contact span {
