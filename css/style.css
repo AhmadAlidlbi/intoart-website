@@ -181,13 +181,13 @@ a:hover:link {
 
 #offer-title{
   position:relative;
-  top: 50px;
+  top: 100px;
 }
 
 #offer-video {
   border-radius: 20px;
   position:relative;
-  top: 50px;
+  top: 90px;
 }
 
 #offer-video:hover {
@@ -197,22 +197,27 @@ a:hover:link {
 #description3 {
   font-size: 30px;
   position:relative;
-  top: 50px;
+  top: 90px;
 }
 
 #paragraph1{
   position:relative;
-  top: 50px;
+  top: 90px;
   font-size: 23px;
 }
 
 #our-designs {
   position: fixed;
   left: 910px;
-  top: 20px;
+  top: 90px;
   font-size: 30px;
 }
 
+#our-designs-title{
+  position: fixed;
+  top: 30px;
+  left: 930px;
+}
 #our-designs-title a{
   color: rgb(0, 0, 0);
 }
