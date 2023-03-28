@@ -50,6 +50,7 @@ a:hover:link {
   padding: 5px;
   z-index: 10;
 }
+
 .header{
   position: fixed;
   width: 100%;
