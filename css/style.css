@@ -161,21 +161,21 @@ a:hover:link {
 
 #page-title {
   position:fixed;
-  top: 0px;
+  top: -30px;
   left: 130px;
   font-size: 45px;
 }
 
 #description1 {
   position:fixed;
-  top: 50px;
+  top: 25px;
   left: 130px;
   font-size: 30px;
 }
 
 #description2 {
   position:fixed;
-  top: 90px;
+  top: 70px;
   left: 130px;
 }
 
