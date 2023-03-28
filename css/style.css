@@ -206,14 +206,14 @@ a:hover:link {
   font-size: 23px;
 }
 
-#our-designs {
+/*#our-designs {
   position: fixed;
   left: 910px;
   top: 90px;
   font-size: 30px;
-}
+}*/
 
-#our-designs-title{
+/*#our-designs-title{
   position: fixed;
   top: 30px;
   left: 930px;
@@ -223,6 +223,11 @@ a:hover:link {
 }
 #our-designs-title a:hover{
   color: rgb(128, 57, 0);
+}*/
+
+#our-designs{
+  font-size: 30px;
+  margin: 60px;
 }
 
 .consultations{
