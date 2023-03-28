@@ -168,15 +168,15 @@ a:hover:link {
 
 #description1 {
   position:fixed;
-  top: 10px;
-  left: 430px;
+  top: 50px;
+  left: 130px;
   font-size: 30px;
 }
 
 #description2 {
   position:fixed;
-  top: 55px;
-  left: 580px;
+  top: 90px;
+  left: 130px;
 }
 
 #offer-title{
