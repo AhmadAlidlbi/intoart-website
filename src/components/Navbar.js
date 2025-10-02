@@ -10,6 +10,10 @@ export default function Navbar() {
   const pathname = usePathname();
   const menuPanelRef = useRef(null);
   const menuTriggerRef = useRef(null);
+  const isLinkActive = (href) => {
+    if (href === "/") return pathname === "/";
+    return pathname && pathname.startsWith(href);
+  };
 
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -93,8 +97,10 @@ export default function Navbar() {
     <>
       <nav
         aria-label="Main navigation"
-        className={`bg-white shadow-md py-4 px-6 sticky top-0 z-40 transition-all duration-300 ${
-          isScrolled ? "shadow-lg bg-white/95 backdrop-blur-sm" : ""
+        className={`bg-white shadow-md py-4 px-6 sticky top-0 z-40 motion-safe:transition-all duration-300 ${
+          isScrolled
+            ? "shadow-lg bg-white/95 backdrop-blur-sm border-b border-gray-100"
+            : ""
         }`}
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center">
@@ -124,8 +130,9 @@ export default function Navbar() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className={`transition-colors duration-200 font-medium ${
-                      pathname === link.href
+                    aria-current={isLinkActive(link.href) ? "page" : undefined}
+                    className={`motion-safe:transition-colors duration-200 font-medium ${
+                      isLinkActive(link.href)
                         ? "text-amber-600 font-semibold"
                         : "text-gray-700 hover:text-amber-600"
                     }`}
@@ -139,7 +146,7 @@ export default function Navbar() {
 
           {/* Desktop CTA Button */}
           <div className="flex-shrink-0 hidden md:block">
-            <button className="bg-[#654835] hover:bg-[#5a3f2f] text-white px-6 py-2 rounded font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-amber-600">
+            <button className="bg-brand-brown hover:bg-brand-brown-dark text-white px-6 py-2 rounded font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-amber-600">
               Book Your Consultation
             </button>
           </div>
@@ -148,7 +155,7 @@ export default function Navbar() {
           <div className="md:hidden">
             <button
               onClick={toggleMobileMenu}
-              className="text-gray-700 hover:text-amber-600 p-2 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-amber-600"
+              className="text-gray-700 hover:text-amber-600 p-2 motion-safe:transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-amber-600"
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-menu"
@@ -193,12 +200,12 @@ export default function Navbar() {
         role="dialog"
         aria-modal="true"
         aria-label="Mobile menu"
-        className={`md:hidden fixed inset-0 z-50 transition-all duration-300 ease-in-out ${
+        className={`md:hidden fixed inset-0 z-50 motion-safe:transition-all duration-300 ease-in-out ${
           isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       >
         <div
-          className={`absolute inset-0 bg-black transition-opacity duration-300 ease-in-out ${
+          className={`absolute inset-0 bg-black motion-safe:transition-opacity duration-300 ease-in-out ${
             isMobileMenuOpen ? "opacity-50" : "opacity-0"
           }`}
           onClick={closeMobileMenu}
@@ -208,7 +215,7 @@ export default function Navbar() {
         <div
           id="mobile-menu"
           ref={menuPanelRef}
-          className={`absolute right-0 top-0 h-full w-80 bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${
+          className={`absolute right-0 top-0 h-full w-80 bg-white shadow-xl transform motion-safe:transition-transform duration-300 ease-in-out ${
             isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
           style={{ willChange: "transform, opacity" }}
@@ -246,8 +253,9 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`text-lg py-3 border-b border-gray-100 transition-all duration-200 hover:pl-2 transform hover:scale-105 ${
-                    pathname === link.href
+                  aria-current={isLinkActive(link.href) ? "page" : undefined}
+                  className={`text-lg py-3 border-b border-gray-100 motion-safe:transition-all duration-200 hover:pl-2 transform hover:scale-105 ${
+                    isLinkActive(link.href)
                       ? "text-amber-600 font-semibold"
                       : "text-gray-700 hover:text-amber-600"
                   }`}
@@ -273,7 +281,7 @@ export default function Navbar() {
             {/* Mobile CTA Button */}
             <div className="pt-6 border-t border-gray-200">
               <button
-                className="bg-[#654835] hover:bg-[#5a3f2f] text-white px-6 py-3 rounded font-medium transition-all duration-200 shadow-lg hover:shadow-xl w-full transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-amber-600"
+                className="bg-brand-brown hover:bg-brand-brown-dark text-white px-6 py-3 rounded font-medium transition-all duration-200 shadow-lg hover:shadow-xl w-full transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-amber-600"
                 onClick={closeMobileMenu}
               >
                 Book Your Consultation
