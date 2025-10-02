@@ -1,68 +1,287 @@
-import Link from 'next/link';
+"use client";
+import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
+  const menuPanelRef = useRef(null);
+  const menuTriggerRef = useRef(null);
+
+  const closeMobileMenu = () => setIsMobileMenuOpen(false);
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+
+  // Sticky navbar effect (throttled via rAF)
+  useEffect(() => {
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Close menu on escape key, prevent background scroll, and trap focus in menu
+  useEffect(() => {
+    const handleEscapeKey = (event) => {
+      if (event.key === "Escape") closeMobileMenu();
+    };
+
+    if (isMobileMenuOpen) {
+      document.addEventListener("keydown", handleEscapeKey);
+      document.body.style.overflow = "hidden";
+
+      // Focus trap
+      const panel = menuPanelRef.current;
+      if (panel) {
+        const focusable = panel.querySelectorAll(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        );
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (first && typeof first.focus === "function") first.focus();
+
+        const handleTab = (e) => {
+          if (e.key !== "Tab") return;
+          if (focusable.length === 0) return;
+          if (e.shiftKey) {
+            if (document.activeElement === first) {
+              e.preventDefault();
+              last.focus();
+            }
+          } else {
+            if (document.activeElement === last) {
+              e.preventDefault();
+              first.focus();
+            }
+          }
+        };
+        panel.addEventListener("keydown", handleTab);
+        return () => {
+          panel.removeEventListener("keydown", handleTab);
+        };
+      }
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleEscapeKey);
+      document.body.style.overflow = "unset";
+    };
+  }, [isMobileMenuOpen]);
+
+  const navLinks = [
+    { href: "/", label: "Home" },
+    { href: "/about-us", label: "About Us" },
+    { href: "/services", label: "Services" },
+    { href: "/projects", label: "Projects" },
+    { href: "/portfolio", label: "Portfolio" },
+    { href: "/contact-us", label: "Contact Us" },
+  ];
+
   return (
-    <nav className="bg-white shadow-md py-4 px-6">
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
-        {/* Logo - Far Left */}
-        <div className="flex-shrink-0">
-          <Link href="/" className="text-2xl font-serif font-bold text-gray-800">
-            DesignElite
-          </Link>
-        </div>
+    <>
+      <nav
+        aria-label="Main navigation"
+        className={`bg-white shadow-md py-4 px-6 sticky top-0 z-40 transition-all duration-300 ${
+          isScrolled ? "shadow-lg bg-white/95 backdrop-blur-sm" : ""
+        }`}
+      >
+        <div className="max-w-7xl mx-auto flex justify-between items-center">
+          {/* Logo */}
+          <div className="flex-shrink-0">
+            <Link
+              href="/"
+              className="flex items-center"
+              aria-label="IntoArt Home"
+            >
+              <Image
+                src="/logo.png"
+                alt="IntoArt Logo"
+                width={180}
+                height={70}
+                className="h-16 w-auto"
+                priority
+                sizes="(max-width: 768px) 140px, 180px"
+              />
+            </Link>
+          </div>
 
-        {/* Navigation Links - Center */}
-        <div className="hidden md:flex flex-1 justify-center">
-          <ul className="flex space-x-8">
-            <li>
-              <Link href="/" className="text-gray-700 hover:text-amber-600 transition-colors duration-200 font-medium">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href="/about-us" className="text-gray-700 hover:text-amber-600 transition-colors duration-200 font-medium">
-                About Us
-              </Link>
-            </li>
-            <li>
-              <Link href="/services" className="text-gray-700 hover:text-amber-600 transition-colors duration-200 font-medium">
-                Services
-              </Link>
-            </li>
-            <li>
-              <Link href="/projects" className="text-gray-700 hover:text-amber-600 transition-colors duration-200 font-medium">
-                Projects
-              </Link>
-            </li>
-            <li>
-              <Link href="/portfolio" className="text-gray-700 hover:text-amber-600 transition-colors duration-200 font-medium">
-                Portfolio
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact-us" className="text-gray-700 hover:text-amber-600 transition-colors duration-200 font-medium">
-                Contact Us
-              </Link>
-            </li>
-          </ul>
-        </div>
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex flex-1 justify-center">
+            <ul className="flex space-x-8">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={`transition-colors duration-200 font-medium ${
+                      pathname === link.href
+                        ? "text-amber-600 font-semibold"
+                        : "text-gray-700 hover:text-amber-600"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        {/* CTA Button - Far Right */}
-        <div className="flex-shrink-0">
-          <button className="bg-amber-500 hover:bg-amber-600 text-white px-6 py-2 rounded-full font-medium transition-colors duration-200 shadow-lg hover:shadow-xl">
-            Book Your Consultation
-          </button>
-        </div>
+          {/* Desktop CTA Button */}
+          <div className="flex-shrink-0 hidden md:block">
+            <button className="bg-[#654835] hover:bg-[#5a3f2f] text-white px-6 py-2 rounded font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-amber-600">
+              Book Your Consultation
+            </button>
+          </div>
 
-        {/* Mobile Menu Button (Optional) */}
-        <div className="md:hidden">
-          <button className="text-gray-700 hover:text-amber-600">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <button
+              onClick={toggleMobileMenu}
+              className="text-gray-700 hover:text-amber-600 p-2 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-amber-600"
+              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-menu"
+              ref={menuTriggerRef}
+            >
+              {isMobileMenuOpen ? (
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              )}
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      {/* Mobile Menu Overlay */}
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-label="Mobile menu"
+        className={`md:hidden fixed inset-0 z-50 transition-all duration-300 ease-in-out ${
+          isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+        }`}
+      >
+        <div
+          className={`absolute inset-0 bg-black transition-opacity duration-300 ease-in-out ${
+            isMobileMenuOpen ? "opacity-50" : "opacity-0"
+          }`}
+          onClick={closeMobileMenu}
+          style={{ willChange: "opacity" }}
+        />
+
+        <div
+          id="mobile-menu"
+          ref={menuPanelRef}
+          className={`absolute right-0 top-0 h-full w-80 bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${
+            isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+          style={{ willChange: "transform, opacity" }}
+        >
+          <div
+            className="p-6 h-full flex flex-col"
+            aria-label="Mobile navigation"
+          >
+            {/* Close Button */}
+            <div className="flex justify-end mb-8">
+              <button
+                onClick={closeMobileMenu}
+                className="text-gray-700 hover:text-amber-600 p-2 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-amber-600"
+                aria-label="Close menu"
+              >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            {/* Navigation Links */}
+            <div className="flex flex-col space-y-4 flex-1">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`text-lg py-3 border-b border-gray-100 transition-all duration-200 hover:pl-2 transform hover:scale-105 ${
+                    pathname === link.href
+                      ? "text-amber-600 font-semibold"
+                      : "text-gray-700 hover:text-amber-600"
+                  }`}
+                  onClick={closeMobileMenu}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+
+            {/* Contact Info */}
+            <div className="mt-4 text-sm text-gray-600">
+              <p className="flex items-center mb-2">
+                <span>📧</span>
+                <span className="ml-2">hello@intoart.com</span>
+              </p>
+              <p className="flex items-center">
+                <span>📞</span>
+                <span className="ml-2">+1 (555) 123-4567</span>
+              </p>
+            </div>
+
+            {/* Mobile CTA Button */}
+            <div className="pt-6 border-t border-gray-200">
+              <button
+                className="bg-[#654835] hover:bg-[#5a3f2f] text-white px-6 py-3 rounded font-medium transition-all duration-200 shadow-lg hover:shadow-xl w-full transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-amber-600"
+                onClick={closeMobileMenu}
+              >
+                Book Your Consultation
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-    </nav>
+    </>
   );
 }
