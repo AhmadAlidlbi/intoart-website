@@ -24,7 +24,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-gray-950 text-gray-300 mt-16 border-t border-gray-800">
+    <footer className="bg-gray-50 text-gray-600 mt-16 border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         {/* Top Section */}
         <div className="py-12 grid grid-cols-1 md:grid-cols-4 gap-10">
@@ -44,7 +44,7 @@ export default function Footer() {
                 loading="lazy"
               />
             </Link>
-            <p className="mt-5 text-sm leading-6 text-gray-400 max-w-xs">
+            <p className="mt-5 text-sm leading-6 text-gray-600 max-w-xs">
               We craft elegant digital experiences that elevate brands and drive
               results.
             </p>
@@ -58,7 +58,7 @@ export default function Footer() {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-md bg-gray-900 hover:bg-gray-800 text-gray-300 hover:text-white transition-colors"
+                className="p-2 rounded-md bg-gray-100 hover:bg-gray-200 text-gray-600 hover:text-gray-800 transition-colors"
                 aria-label="Facebook"
               >
                 <svg
@@ -74,7 +74,7 @@ export default function Footer() {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-md bg-gray-900 hover:bg-gray-800 text-gray-300 hover:text-white transition-colors"
+                className="p-2 rounded-md bg-gray-100 hover:bg-gray-200 text-gray-600 hover:text-gray-800 transition-colors"
                 aria-label="X (Twitter)"
               >
                 <svg
@@ -90,7 +90,7 @@ export default function Footer() {
                 href="https://www.linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-md bg-gray-900 hover:bg-gray-800 text-gray-300 hover:text-white transition-colors"
+                className="p-2 rounded-md bg-gray-100 hover:bg-gray-200 text-gray-600 hover:text-gray-800 transition-colors"
                 aria-label="LinkedIn"
               >
                 <svg
@@ -106,7 +106,7 @@ export default function Footer() {
                 href="https://www.instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-md bg-gray-900 hover:bg-gray-800 text-gray-300 hover:text-white transition-colors"
+                className="p-2 rounded-md bg-gray-100 hover:bg-gray-200 text-gray-600 hover:text-gray-800 transition-colors"
                 aria-label="Instagram"
               >
                 <svg
@@ -123,13 +123,15 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-semibold tracking-wide">Company</h3>
+            <h3 className="text-gray-900 font-semibold tracking-wide">
+              Company
+            </h3>
             <ul className="mt-5 space-y-3 text-sm">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors"
+                    className="text-gray-600 hover:text-gray-900 transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -140,12 +142,14 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="text-white font-semibold tracking-wide">Services</h3>
+            <h3 className="text-gray-900 font-semibold tracking-wide">
+              Services
+            </h3>
             <ul className="mt-5 space-y-3 text-sm">
               {services.map((item) => (
                 <li
                   key={item}
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   {item}
                 </li>
@@ -155,40 +159,40 @@ export default function Footer() {
 
           {/* Head Office Map */}
           <div>
-            <h3 className="text-white font-semibold tracking-wide">
+            <h3 className="text-gray-900 font-semibold tracking-wide">
               Head Office
             </h3>
-            <p className="mt-5 text-sm text-gray-400">Find us on the map.</p>
-            <div className="mt-5 rounded-md overflow-hidden border border-gray-800 bg-gray-900">
+            <p className="mt-5 text-sm text-gray-600">Find us on the map.</p>
+            <div className="mt-5 rounded-md overflow-hidden border border-gray-200 bg-white">
               <MapEmbed />
             </div>
           </div>
         </div>
 
         {/* Divider */}
-        <div className="border-t border-gray-800" />
+        <div className="border-t border-gray-200" />
 
         {/* Bottom Bar */}
         <div className="py-6 flex flex-col md:flex-row items-center justify-between text-sm">
-          <p className="text-gray-400">
+          <p className="text-gray-600">
             © {year} IntoArt. All rights reserved.
           </p>
           <div className="mt-3 md:mt-0 flex items-center space-x-6">
             <Link
               href="#"
-              className="text-gray-400 hover:text-white transition-colors"
+              className="text-gray-600 hover:text-gray-900 transition-colors"
             >
               Privacy Policy
             </Link>
             <Link
               href="#"
-              className="text-gray-400 hover:text-white transition-colors"
+              className="text-gray-600 hover:text-gray-900 transition-colors"
             >
               Terms of Service
             </Link>
             <Link
               href="#"
-              className="text-gray-400 hover:text-white transition-colors"
+              className="text-gray-600 hover:text-gray-900 transition-colors"
             >
               Cookies
             </Link>
