@@ -1,14 +1,11 @@
 "use client";
-
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+
+const MapEmbed = dynamic(() => import("./MapEmbed"), { ssr: false });
 
 export default function Footer() {
-  const [isMounted, setIsMounted] = useState(false);
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
   const year = new Date().getFullYear();
   const navLinks = [
     { href: "/", label: "Home" },
@@ -163,20 +160,7 @@ export default function Footer() {
             </h3>
             <p className="mt-5 text-sm text-gray-400">Find us on the map.</p>
             <div className="mt-5 rounded-md overflow-hidden border border-gray-800 bg-gray-900">
-              {isMounted ? (
-                <iframe
-                  title="Head office map"
-                  aria-label="Head office map"
-                  className="w-full h-60"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  style={{ border: 0 }}
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d220.31633176404412!2d47.98846922983134!3d29.384112996161893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fcf85006788269d%3A0x6ce32cacac956b22!2zSU5UTyBBUlQgfCDYp9mG2KrZiCDYotix2Ko!5e0!3m2!1sen!2skw!4v1759500048606!5m2!1sen!2skw"
-                  allowFullScreen
-                />
-              ) : (
-                <div className="w-full h-60 bg-gray-900" aria-hidden="true" />
-              )}
+              <MapEmbed />
             </div>
           </div>
         </div>
