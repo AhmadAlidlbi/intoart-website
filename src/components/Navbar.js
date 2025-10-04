@@ -20,6 +20,9 @@ export default function Navbar() {
 
   // Sticky navbar effect (throttled via rAF)
   useEffect(() => {
+    // Set initial scroll state to prevent hydration mismatch
+    setIsScrolled(window.scrollY > 50);
+
     let ticking = false;
     const onScroll = () => {
       if (!ticking) {
@@ -146,16 +149,18 @@ export default function Navbar() {
 
           {/* Desktop CTA Button */}
           <div className="flex-shrink-0 hidden md:block">
-            <button className="bg-brand-brown hover:bg-brand-brown-dark text-white px-6 py-2 rounded font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-amber-600">
+          <Link href="/book-consultation">
+            <button className="bg-brand-brown hover:bg-brand-brown-dark text-white px-6 py-2 rounded font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 focus:outline-none active:outline-none">
               Book Your Consultation
             </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
               onClick={toggleMobileMenu}
-              className="text-gray-700 hover:text-amber-600 p-2 motion-safe:transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-amber-600"
+              className="text-gray-700 hover:text-amber-600 p-2 motion-safe:transition-colors duration-200 focus:outline-none"
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-menu"
@@ -228,7 +233,7 @@ export default function Navbar() {
             <div className="flex justify-end mb-8">
               <button
                 onClick={closeMobileMenu}
-                className="text-gray-700 hover:text-amber-600 p-2 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-amber-600"
+                className="text-gray-700 hover:text-amber-600 p-2 transition-colors duration-200 focus:outline-none"
                 aria-label="Close menu"
               >
                 <svg
@@ -280,12 +285,14 @@ export default function Navbar() {
 
             {/* Mobile CTA Button */}
             <div className="pt-6 border-t border-gray-200">
+            <Link href="/book-consultation">
               <button
-                className="bg-brand-brown hover:bg-brand-brown-dark text-white px-6 py-3 rounded font-medium transition-all duration-200 shadow-lg hover:shadow-xl w-full transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-amber-600"
+                className="bg-brand-brown hover:bg-brand-brown-dark text-white px-6 py-3 rounded font-medium transition-all duration-200 shadow-lg hover:shadow-xl w-full transform hover:scale-105 active:scale-95 focus:outline-none"
                 onClick={closeMobileMenu}
               >
                 Book Your Consultation
               </button>
+              </Link>
             </div>
           </div>
         </div>

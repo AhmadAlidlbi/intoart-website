@@ -91,8 +91,8 @@ export default function Services() {
             </div>
             <div>
               <a
-                href="/contact-us"
-                className="inline-block bg-brand-brown hover:bg-brand-brown-dark text-white px-6 py-3 rounded font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-amber-600"
+                href="/book-consultation"
+                className="inline-block bg-brand-brown hover:bg-brand-brown-dark text-white px-6 py-3 rounded font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 focus:outline-none "
               >
                 Book Your Consultation
               </a>
